@@ -1,0 +1,129 @@
+"" Source your .vimrc
+"source ~/.vimrc
+set clipboard+=unnamed
+set scrolloff=5
+set visualbell
+
+let mapleader=" "
+set incsearch
+set ignorecase
+set smartcase
+
+set ideajoin
+set ideamarks
+set highlightedyank
+set replaceWithRegister
+" Don't use Ex mode, use Q for formatting.
+map Q B
+map q b
+map <C-Q> ^
+map <C-E> $
+map H ^
+map L $
+
+nnoremap Y y$
+nnoremap 00 ^
+onoremap 00 ^ 
+
+" extend selection 
+" ctrl-+
+map <C-7> <Action>(EditorSelectWord)
+map <A-s> <Action>(EditorSelectWord)
+map <C-8> <Action>(EditorUnSelectWord)
+map <A-a> <Action>(EditorUnSelectWord)
+" windows 
+
+ refactor
+map <leader>rr <Action>(RenameElement)
+map <leader>ri :action Inline<CR>
+map <Leader>R <Action>(Refactorings.QuickListPopupAction)
+map <Leader>A <Action>(AnalyzeActionsPopup)
+
+"run debug test
+nmap <leader><leader>d <Action>(Debug)
+nmap <leader><leader>t <Action>(RiderUnitTestRunTreeSplitAction)
+nmap <leader><leader>r <Action>(Run)
+
+map <leader>s <Action>(FileStructurePopup)
+map <leader>w <Action>(GotoSymbol)
+map <leader>f <Action>(GotoFile)
+map <leader>a <Action>(GotoAction)
+map <leader>i <Action>(Generate)
+map <leader>z <Action>(ToggleZenMode)
+map <leader>x <Action>(ToggleDistractionFreeMode)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>gh <Action>(FindInPath)
+map <leader>gg <Action>(Find)
+map <leader>gi `^ 
+map <leader>k <Action>(CommentByLineComment)
+
+map <leader>t <Action>(ReformatCode)
+map == <Action>(AutoIndentLines)
+
+imap <C-d> { 
+imap <C-f> (
+imap <C-g> [
+imap <C-h> ]
+imap <C-j> )
+imap <C-k> }
+
+omap <C-d> {
+omap <C-f> (
+omap <C-g> [
+omap <C-h> ]
+omap <C-j> )
+omap <C-k> }
+
+
+map gk <Action>(ShowErrorDescription)
+map gn <Action>(GotoNextError) 
+map gN <Action>(GotoPreviousError)
+
+map ge <Action>(RecentLocations)
+map <leader>gr <Action>(RecentFiles)
+
+map gi <Action>(GotoImplementation)
+map gd <Action>(GotoDeclaration)
+map gu <Action>(FindUsages)
+map g; <Action>(JumpToLastChange)
+map g, <Action>(JumpToNextChange)
+map gs <Action>(SurroundWith)
+map gl <Action>(ParameterInfo)
+map gö <Action>(QuickJavaDoc)
+map gh <Action>(QuickJavaDoc)
+
+map gqi <Action>(QuickImplementations)
+imap <C-Enter> <Action>(EditorCompleteStatement)
+map <leader><BS> <Action>(EditorCompleteStatement)
+
+nmap <C-f> <Action>(AceAction)
+map <C-p> <Action>(AceAction)
+omap <C-p> <Action>(AceAction)
+
+nmap <A-K> :action MethodUp<CR>
+nmap <A-J> :action MethodDown<CR>
+
+nmap <A-S-K> :action MoveLineUp<CR>
+nmap <A-S-J> :action MoveLineDown<CR>
+vmap <A-S-K> :action MoveLineUp<CR>
+vmap <A-S-J> :action MoveLineDown<CR>
+imap <A-S-K> :action MoveLineUp<CR>
+imap <A-S-J> :action MoveLineDown<CR>
+
+"slecting
+nnoremap <A-e> ve
+nnoremap <A-w> vw
+nnoremap <A-q> vb
+vnoremap <A-e> e
+vnoremap <A-w> w
+vnoremap <A-q> b
+    
+map <Leader>o <Action>(HideAllWindows)
+map <Leader>O <Action>(JumpToLastWindow)
+"map <BS> <Action>(GotoRelated)
+map <BS> dq
+map <C-BS> dw
+map <A-BS> d^h
+
+map <leader><leader>h <Action>(ContextHelp)
+map <leader>p :action PasteMultiple<CR>
