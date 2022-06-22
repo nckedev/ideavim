@@ -4,7 +4,6 @@ set clipboard+=unnamed
 set scrolloff=5
 set visualbell
 
-
 let mapleader=" "
 set incsearch
 set ignorecase
@@ -21,20 +20,21 @@ map <C-Q> ^
 map <C-E> $
 map H ^
 map L $
+map <cr> .
 
 nnoremap Y y$
 nnoremap 00 ^
 onoremap 00 ^ 
 
+"git
+map <S-A-e> <Action>(NextDiff)
+map <S-A-q> <Action>(PreviousDiff)
+
 " extend selection 
 " ctrl-+
-map <C-7> <Action>(EditorSelectWord)
-map <A-s> <Action>(EditorSelectWord)
-map <C-8> <Action>(EditorUnSelectWord)
-map <A-a> <Action>(EditorUnSelectWord)
 " windows 
 
- refactor
+" refactor
 map <leader>rr <Action>(RenameElement)
 map <leader>ri :action Inline<CR>
 map <Leader>R <Action>(Refactorings.QuickListPopupAction)
@@ -47,6 +47,7 @@ nmap <leader><leader>r <Action>(Run)
 
 map <leader>s <Action>(FileStructurePopup)
 map <leader>w <Action>(GotoSymbol)
+map <leader>e <Action>(TextSearchAction)
 map <leader>f <Action>(GotoFile)
 map <leader>a <Action>(GotoAction)
 map <leader>i <Action>(Generate)
@@ -118,6 +119,10 @@ nnoremap <A-q> vb
 vnoremap <A-e> e
 vnoremap <A-w> w
 vnoremap <A-q> b
+map <C-7> <Action>(EditorSelectWord)
+map <A-s> <Action>(EditorSelectWord)
+map <C-8> <Action>(EditorUnSelectWord)
+map <A-a> <Action>(EditorUnSelectWord)
     
 map <Leader>o <Action>(HideAllWindows)
 map <Leader>O <Action>(JumpToLastWindow)
