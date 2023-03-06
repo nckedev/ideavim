@@ -14,17 +14,22 @@ set ideamarks
 set highlightedyank
 set replaceWithRegister
 " Don't use Ex mode, use Q for formatting.
-map Q B
+map Q ^
 map q b
-map <C-Q> ^
-map <C-E> $
+map <C-Q> B
+map <C-E> E
 map H ^
 map L $
 map <cr> .
+vmap <cr> :'<'>:norm . <cr>
 
 nnoremap Y y$
+nnoremap vv V
 nnoremap 00 ^
 onoremap 00 ^ 
+
+
+
 
 "git
 map <S-A-e> <Action>(NextDiff)
@@ -44,6 +49,7 @@ map <Leader>A <Action>(AnalyzeActionsPopup)
 nmap <leader><leader>d <Action>(Debug)
 nmap <leader><leader>t <Action>(RiderUnitTestRunTreeSplitAction)
 nmap <leader><leader>r <Action>(Run)
+nmap <leader><leader>q <Action>(RiderUnitTestRunContextAction)
 
 map <leader>s <Action>(FileStructurePopup)
 map <leader>w <Action>(GotoSymbol)
@@ -56,30 +62,35 @@ map <leader>x <Action>(ToggleDistractionFreeMode)
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>gh <Action>(FindInPath)
 map <leader>gg <Action>(Find)
+map <C-g> <Action>(FindInPath)
+map <C-f> <Action>(Find)
 map <leader>gi `^ 
 map <leader>k <Action>(CommentByLineComment)
 
 map <leader>t <Action>(ReformatCode)
 map == <Action>(AutoIndentLines)
 
-imap <C-d> { 
+imap <C-d> {
 imap <C-f> (
 imap <C-g> [
 imap <C-h> ]
 imap <C-j> )
 imap <C-k> }
 
-omap <C-d> {
+onoremap <C-d> {
 omap <C-f> (
 omap <C-g> [
 omap <C-h> ]
 omap <C-j> )
-omap <C-k> }
+onoremap <C-k> }
 
 
 map gk <Action>(ShowErrorDescription)
+
 map gn <Action>(GotoNextError) 
 map gN <Action>(GotoPreviousError)
+map <leader>gn <Action>(GotoNextError) 
+map <leader>gN <Action>(GotoPreviousError)
 
 map ge <Action>(RecentLocations)
 map <leader>gr <Action>(RecentFiles)
@@ -98,12 +109,15 @@ map gqi <Action>(QuickImplementations)
 imap <C-Enter> <Action>(EditorCompleteStatement)
 map <leader><BS> <Action>(EditorCompleteStatement)
 
-nmap <C-f> <Action>(AceAction)
-map <C-p> <Action>(AceAction)
-omap <C-p> <Action>(AceAction)
+"nmap <C-f> <Action>(AceAction)
+map <C-h> <Action>(AceAction)
+omap <C-h> <Action>(AceAction)
 
 nmap <A-K> :action MethodUp<CR>
 nmap <A-J> :action MethodDown<CR>
+
+nmap <C-j> <C-d>
+nmap <C-k> <C-u>
 
 nmap <A-S-K> :action MoveLineUp<CR>
 nmap <A-S-J> :action MoveLineDown<CR>
@@ -111,6 +125,8 @@ vmap <A-S-K> :action MoveLineUp<CR>
 vmap <A-S-J> :action MoveLineDown<CR>
 imap <A-S-K> :action MoveLineUp<CR>
 imap <A-S-J> :action MoveLineDown<CR>
+map <A-C-J> :action MoveStatementDown<CR>
+map <A-C-K> :action MoveStatementUp<CR>
 
 "slecting
 nnoremap <A-e> ve
@@ -133,3 +149,5 @@ map <A-BS> d^h
 
 map <leader><leader>h <Action>(ContextHelp)
 map <leader>p :action PasteMultiple<CR>
+
+map <leader>u :action PinActiveTab<CR>
