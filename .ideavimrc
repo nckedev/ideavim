@@ -45,10 +45,10 @@ nmap <leader><leader>d <Action>(Debug)
 nmap <leader><leader>t <Action>(RiderUnitTestRunTreeSplitAction)
 nmap <leader><leader>r <Action>(Run)
 
-map <leader>s <Action>(FileStructurePopup)
-map <leader>w <Action>(GotoSymbol)
-map <leader>f <Action>(GotoFile)
-map <leader>a <Action>(GotoAction)
+map <leader>fs <Action>(FileStructurePopup)
+map <leader>fw <Action>(GotoSymbol)
+map <leader>ff <Action>(GotoFile)
+map <leader>fa <Action>(GotoAction)
 map <leader>i <Action>(Generate)
 map <leader>z <Action>(ToggleZenMode)
 map <leader>x <Action>(ToggleDistractionFreeMode)
@@ -128,3 +128,16 @@ map <A-BS> d^h
 
 map <leader><leader>h <Action>(ContextHelp)
 map <leader>p :action PasteMultiple<CR>
+
+map <C-i> :action Forward<CR>
+map <C-o> :action Back<CR>
+
+map <C-space> :action RecentFiles<CR>
+
+map <A-j> :action MethodDown<CR>
+map <A-k> :action MethodUp<CR>
+
+map <C-j> <C-d>
+map <c-k> <c-u>
+
+map <leader><leader>7 :action IdeaVim.ReloadVimRc.reload<CR> 
