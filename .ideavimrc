@@ -68,6 +68,7 @@ map <leader>gi `^
 map <leader>k <Action>(CommentByLineComment)
 
 map <leader>t <Action>(ReformatCode)
+map <leader>w <Action>(ReformatCode)
 map == <Action>(AutoIndentLines)
 
 imap <C-d> {
@@ -85,7 +86,7 @@ omap <C-j> )
 onoremap <C-k> }
 
 
-map gk <Action>(ShowErrorDescription)
+map <leader>e <Action>(ShowErrorDescription)
 
 map gn <Action>(GotoNextError) 
 map gN <Action>(GotoPreviousError)
@@ -99,11 +100,11 @@ map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
 map gu <Action>(FindUsages)
 map g; <Action>(JumpToLastChange)
-map g, <Action>(JumpToNextChange)
+map g, <Action>(JumpToNextChange) 
 map gs <Action>(SurroundWith)
 map gl <Action>(ParameterInfo)
 map gö <Action>(QuickJavaDoc)
-map gh <Action>(QuickJavaDoc)
+map <leader>h <Action>(QuickJavaDoc)
 
 map gqi <Action>(QuickImplementations)
 imap <C-Enter> <Action>(EditorCompleteStatement)
